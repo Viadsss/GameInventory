@@ -1,0 +1,12 @@
+<% games.forEach(game => { %>
+<div>
+  <div>Title: <%= game.title %></div>
+  <div>Description: <%= game.description %></div>
+  <div>Price: <%= game.price %>$</div>
+  <div>Release Date: <%= game.release_date %></div>
+  <div><%= game.genre_name %></div>
+  <div><%= game.developer_name %></div>
+  <div><%= game.developer_founded_date %></div>
+  <div>---------------</div>
+</div>
+<% }) %>
