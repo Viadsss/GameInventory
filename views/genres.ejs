@@ -7,7 +7,12 @@
   </head>
   <body>
     <%- include("partials/links") %>
-    <h1>Games List</h1>
-    <%- include("partials/games", { games: games }) %>
+    <h1>Genres</h1>
+    <% genres.forEach(genre => { %>
+    <div>
+      <div><%= genre.id %>. <%= genre.name %></div>
+    </div>
+    <% }) %>
+    <a href="/genres/new">Add new Genre</a>
   </body>
 </html>

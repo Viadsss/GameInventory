@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameStash</title>
+  </head>
+  <body>
+    <h1>Add New Developer</h1>
+    <form action="/developers/new" method="POST">
+      <label for="name">Developer Name: </label>
+      <input type="text" name="name" id="name" required />
+      <label for="founded_date">Founded Date: </label>
+      <input type="date" name="founded_date" id="founded_date" required />
+      <%- include("../partials/errors.ejs") %>
+      <button type="submit">Add</button>
+    </form>
+    <a href="/genres">Back</a>
+  </body>
+</html>

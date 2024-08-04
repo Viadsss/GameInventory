@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameStash</title>
+  </head>
+  <body>
+    <%- include("partials/links") %>
+    <h1>Developers</h1>
+    <% developers.forEach(developer => { %>
+    <div>
+      <div><%= developer.id %>. <%= developer.name %></div>
+      <div>Founded Date: <%= developer.founded_date %></div>
+    </div>
+    <% }) %>
+    <a href="/developers/new">Add new Developer</a>
+  </body>
+</html>

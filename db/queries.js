@@ -14,4 +14,31 @@ async function getGames() {
   return rows;
 }
 
-module.exports = { getGames };
+async function getGenres() {
+  const { rows } = await pool.query("SELECT * FROM genres");
+  return rows;
+}
+
+async function getDevelopers() {
+  const { rows } = await pool.query("SELECT * FROM developers");
+  return rows;
+}
+
+async function insertGenre(name) {
+  await pool.query("INSERT INTO genres (name) VALUES ($1)", [name]);
+}
+
+async function insertDeveloper(name, founded_date) {
+  await pool.query(
+    "INSERT INTO developers (name, founded_date) VALUES ($1, $2)",
+    [name, founded_date]
+  );
+}
+
+module.exports = {
+  getGames,
+  getGenres,
+  getDevelopers,
+  insertGenre,
+  insertDeveloper,
+};
