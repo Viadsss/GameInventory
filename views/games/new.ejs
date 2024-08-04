@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameStash</title>
+  </head>
+  <body>
+    <h1>Add New Game</h1>
+    <form action="/games/new" method="POST">
+      <label for="title">Game Title: </label>
+      <input type="text" name="title" id="title" required />
+      <br />
+      <label for="description">Game Description: </label>
+      <textarea
+        name="description"
+        id="description"
+        rows="10"
+        cols="50"
+        required
+      ></textarea>
+      <br />
+      <label for="price">Price: </label>
+      <input type="text" name="price" id="price" required />
+      <br />
+      <label for="release_date">Release Date: </label>
+      <input type="date" name="release_date" id="release_date" required />
+      <br />
+      <label for="genre_id">Genre: </label>
+      <select name="genre_id" id="genre_id" required>
+        <% genres.forEach(genre => { %>
+        <option value="<%= genre.id %>"><%= genre.name %></option>
+        <% }) %>
+      </select>
+      <br />
+      <label for="developer_id">Developer: </label>
+      <select name="developer_id" id="developer_id" required>
+        <% developers.forEach((developer) => { %>
+        <option value="<%= developer.id %>"><%= developer.name %></option>
+        <% }) %>
+      </select>
+      <br />
+      <option <%- include("../partials/errors.ejs") %>
+      <button type="submit">Add</button>
+    </form>
+    <a href="/">Back</a>
+  </body>
+</html>

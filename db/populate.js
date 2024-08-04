@@ -52,9 +52,3 @@ async function main() {
 }
 
 main();
-
-const DropTables = `
-DROP TABLE games;
-DROP TABLE developers;
-DROP TABLE genres;
-`

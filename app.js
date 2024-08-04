@@ -6,6 +6,7 @@ const app = express();
 
 // Routers
 const indexRouter = require("./routes/indexRouter");
+const gamesRouter = require("./routes/gamesRouter");
 const genresRouter = require("./routes/genresRouter");
 const developerRouter = require("./routes/developersRouter");
 
@@ -16,6 +17,7 @@ app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
+app.use("/games", gamesRouter);
 app.use("/genres", genresRouter);
 app.use("/developers", developerRouter);
 

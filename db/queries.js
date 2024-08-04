@@ -24,6 +24,21 @@ async function getDevelopers() {
   return rows;
 }
 
+async function insertGame(
+  title,
+  description,
+  price,
+  release_date,
+  genre_id,
+  developer_id
+) {
+  await pool.query(
+    `INSERT INTO games (title, description, price, release_date, genre_id, developer_id)
+      VALUES ($1, $2, $3, $4, $5, $6)`,
+    [title, description, price, release_date, genre_id, developer_id]
+  );
+}
+
 async function insertGenre(name) {
   await pool.query("INSERT INTO genres (name) VALUES ($1)", [name]);
 }
@@ -39,6 +54,7 @@ module.exports = {
   getGames,
   getGenres,
   getDevelopers,
+  insertGame,
   insertGenre,
   insertDeveloper,
 };
